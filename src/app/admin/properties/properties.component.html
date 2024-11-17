@@ -1,0 +1,61 @@
+<section>
+  <div *ngIf="!filteredProjects" uk-spinner="ratio: 3" id="loading"></div>
+  <ng-container *ngIf="filteredProjects">
+    <div
+      *ngIf="projects.length === 0"
+      id="no-projects"
+      uk-toggle="target: #project-modal"
+    >
+      <i class="fa-solid fa-plus"></i>
+      <p>
+        You have not added any property projects yet. Click here to add one.
+      </p>
+    </div>
+    <ng-container *ngIf="projects.length > 0">
+      <div id="projects">
+        <app-project-card
+          *ngFor="let project of filteredProjects"
+          [project]="project"
+        ></app-project-card>
+      </div>
+      <div id="add-property">
+        <app-fab
+          icon="plus"
+          title="Add..."
+          (btnClick)="showDropdown()"
+        ></app-fab>
+        <div
+          uk-dropdown="mode: click; pos: bottom-right"
+          id="add-property-dropdown"
+        >
+          <ul>
+            <li>
+              <button
+                uk-toggle="target: #project-modal"
+                (click)="hideDropdown()"
+              >
+                <i class="fa-solid fa-city"></i>New Project
+              </button>
+            </li>
+            <li>
+              <button uk-toggle="target: #type-modal" (click)="hideDropdown()">
+                <i class="fa-solid fa-building"></i>New Type
+              </button>
+            </li>
+            <li *ngIf="types && types.length > 0">
+              <button uk-toggle="target: #unit-modal" (click)="hideDropdown()">
+                <i class="fa-solid fa-house"></i>New Unit
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</section>
+
+<app-project-modal></app-project-modal>
+
+<app-type-modal [projects]="projects"></app-type-modal>
+
+<app-unit-modal [projects]="projects" [types]="types"></app-unit-modal>

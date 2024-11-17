@@ -1,0 +1,79 @@
+.property {
+    border-radius: 15px;
+    transition: all .5s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.property:hover {
+    box-shadow: var(--normal-shadow);
+}
+
+.property-image {
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+    width: 100%;
+    height: 200px;
+}
+
+.property-content {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.property-heading,
+.property-price,
+.property-address,
+.property-features {
+    font-family: var(--font-three);
+    color: var(--tertiary);
+}
+
+.property-heading {
+    font-weight: 700;
+    font-size: var(--large);
+    margin: 0;
+}
+
+.property-address {
+    font-size: var(--small);
+    margin: 0;
+}
+
+.property-price {
+    font-size: var(--medium);
+    font-weight: 700;
+    margin: .5em 0;
+}
+
+.property-features {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: .5em;
+}
+
+.property-sqft {
+    margin: 0 .75em 0 0;
+}
+
+.property-rating {
+    margin: 0;
+}
+
+.feature-icon {
+    margin-right: .5em;
+}
+
+.property-link {
+    position: absolute;
+    right: 1em;
+    bottom: 1em;
+    background-color: transparent;
+    border: none;
+    color: var(--tertiary);
+    font-size: var(--xlarge);
+    transition: all .5s;
+    cursor: pointer;
+}

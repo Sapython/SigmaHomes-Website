@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --primary: #00b2ca;
+  --secondary: #1d4e89;
+  --primary-contrast: #fff;
+  --secondary-contrast: #fff;
+  --secondary-light: #badaff;
+  --secondary-lighter: #e3f0ff;
+  --tertiary: #000;
+  --light-tertiary: grey;
+  --success: #34b729;
+  --danger: #dc143c;
+  --processing: #fa9d39;
+  --xxxlarge: 36px;
+  --xxlarge: 28px;
+  --xlarge: 24px;
+  --large: 20px;
+  --medium: 18px;
+  --small: 16px;
+  --xsmall: 14px;
+  --font-one: "Playfair Display", serif;
+  --font-two: "Lato", sans-serif;
+  --font-three: "Poppins", sans-serif;
+  --normal-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  --light-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+* {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-input {
+  display: block;
+  background-color: transparent;
+  font-family: var(--font-three);
+  font-size: var(--medium);
+  padding: 0.5em;
+  border: none;
+  border-bottom: 2px solid var(--secondary);
+  outline: none;
+  resize: none;
+}
+
+.secondary-btn {
+  font-family: var(--font-three);
+  font-size: var(--xsmall);
+  font-weight: 500;
+  padding: 0.25em 0.5em;
+  background-color: var(--secondary-contrast);
+  color: var(--secondary);
+  border: none;
+  transition: all 0.5s;
+  border-radius: 7px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  margin-left: 0.5em;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+  }
+
+  i {
+    margin-right: 0.5em;
+  }
+}
+
+.uk-modal {
+  z-index: 999;
+}
+
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialog {
+  .mat-dialog-container {
+    width: 50vw;
+    min-width: 270px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+.image-and-name {
+  display: flex;
+  align-items: flex-start;
+
+  img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 0.5em;
+  }
+
+  h3 {
+    font-family: var(--font-three);
+    font-size: var(--medium);
+    color: var(--tertiary);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .label-badge {
+      color: var(--light-tertiary);
+      font-family: var(--font-three);
+      font-size: var(--small);
+      border-radius: 7px;
+    }
+  }
+}

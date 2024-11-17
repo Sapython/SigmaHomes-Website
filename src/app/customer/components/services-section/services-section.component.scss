@@ -1,0 +1,111 @@
+#services {
+    background-color: var(--secondary);
+    padding: 2em;
+}
+
+h3 {
+    text-align: center;
+    font-size: var(--xxlarge);
+    font-family: var(--font-three);
+    color: var(--secondary-contrast);
+}
+
+.service {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.service:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.service-content, .service-image-container {
+    width: 50%;
+    margin: 2.5em;
+}
+
+.service-image-container, .service-image {
+    height: 600px;
+}
+
+.service-image-container {
+    border: 1px solid var(--primary);
+    position: relative;
+}
+
+.service-image {
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: -2em;
+    right: -2em;
+}
+
+.service-heading {
+    font-size: var(--xlarge);
+    color: var(--primary);
+    font-family: var(--font-one);
+}
+
+.service-paragraph, .service-link {
+    margin-top: 1em;
+}
+
+.service-paragraph {
+    color: var(--secondary-contrast);
+    font-size: var(--medium);
+    font-family: var(--font-two);
+}
+
+.service-link {
+    display: block;
+    text-decoration: none;
+    background-color: var(--primary);
+    color: var(--primary-contrast);
+    width: fit-content;
+    padding: .5em 1em;
+    border-radius: 20px;
+    font-family:  var(--font-three);
+}
+
+@media (max-width: 2000px) {
+    .service-image-container, .service-image {
+        height: 500px;
+    } 
+}
+
+@media (max-width: 1600px) {
+    .service-image-container, .service-image {
+        height: 400px;
+    } 
+}
+
+@media (max-width: 1200px) {
+    .service-image-container, .service-image {
+        height: 300px;
+    } 
+}
+
+@media (max-width: 900px) {
+    .service, .service:nth-child(even) {
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        margin: 4em 0;
+    }
+
+    .service-content, .service-image-container {
+        width: 90%;
+        max-width: 400px;
+        margin: 0;
+    }
+
+    .service-image-container, .service-image {
+        height: 200px;
+    }
+
+    .service-image-container {
+        margin-bottom: 1em;
+    }
+}

@@ -1,0 +1,78 @@
+<div
+  *ngIf="loading; else notLoading"
+  class="uk-position-center"
+  uk-spinner="ratio: 4"
+></div>
+
+<ng-template #notLoading>
+  <img
+    src="assets/img/empty.svg"
+    *ngIf="
+      filteredResponses && filteredResponses.length == 0;
+      else responsesExist
+    "
+    class="uk-position-center"
+    style="width: 400px"
+    alt="Empty"
+  />
+  <ng-template #responsesExist>
+    <section>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>S. No.</th>
+              <th>Customer/Lead</th>
+              <th>Phase</th>
+              <th>Properties</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let response of filteredResponses; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>
+                {{ response.customerOrLead?.name }}
+                <br />
+                <div class="buttons">
+                  <a href="tel:{{ response.customerOrLead?.phone }}"
+                    ><i class="fa-solid fa-phone"></i
+                  ></a>
+                  <button><i class="fa-solid fa-comment-sms"></i></button>
+                  <a href="mailto:{{ response.customerOrLead?.email }}">
+                    <i class="fa-solid fa-envelope"></i>
+                  </a>
+                </div>
+              </td>
+              <td>{{ response.phase }}</td>
+              <td>{{ response.properties.length }}</td>
+              <td>
+                <div class="buttons">
+                  <button [routerLink]="response.id">
+                    <i class="fa-solid fa-eye"></i>
+                  </button>
+                  <button
+                    (click)="
+                      deleteResponse(
+                        response.id,
+                        response.customerId || response.leadId
+                      )
+                    "
+                    class="delete-btn"
+                  >
+                    <i class="fa-solid fa-trash"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </ng-template>
+  <app-fab
+    [icon]="'plus'"
+    [title]="'Add New Response'"
+    (btnClick)="triggerAddResponse()"
+  ></app-fab>
+</ng-template>

@@ -1,0 +1,88 @@
+section {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1em;
+
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+
+    table {
+      font-family: var(--font-three);
+      border-collapse: collapse;
+      width: 100%;
+      color: var(--tertiary);
+
+      td,
+      th {
+        padding: 0.75em;
+        font-size: var(--xsmall);
+      }
+
+      thead {
+        tr {
+          background-color: var(--secondary);
+          color: var(--secondary-contrast);
+
+          th {
+            font-weight: 500;
+            white-space: nowrap;
+            text-align: left;
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          transition: all 0.5s;
+
+          &:nth-child(even) {
+            background-color: var(--secondary-lighter);
+          }
+
+          &:hover {
+            background-color: var(--secondary-light);
+          }
+
+          td {
+            vertical-align: center;
+
+            .buttons {
+              display: flex;
+
+              a,
+              button {
+                text-decoration: none;
+                border: none;
+                width: 30px;
+                height: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: var(--secondary);
+                color: var(--secondary-contrast);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: all 0.5s;
+                margin-right: 0.25em;
+
+                &:not(:disabled):hover {
+                  box-shadow: var(--normal-shadow);
+                }
+
+                &:disabled {
+                  opacity: 0.8;
+                  cursor: no-drop;
+                }
+
+                &.delete-btn {
+                  background-color: var(--danger);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
